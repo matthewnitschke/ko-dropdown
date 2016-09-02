@@ -38,11 +38,6 @@ ko.components.register("dropdown", {
       return retOptions;
     });
 
-
-
-
-
-
     self.toggleOpen = function(data, event){
       event.stopPropagation();
       self.dropdownOpen(!self.dropdownOpen());
@@ -52,12 +47,10 @@ ko.components.register("dropdown", {
         self.dropdownOpen(false);
     });
   },
-  template: `
-    <div class="dropdown" data-bind="click: toggleOpen">
-      <span class="selected" data-bind="text: selectedText"></span>
-      <ul data-bind="visible: dropdownOpen, foreach: dropdownOptions">
-        <li data-bind="text: text, click: $parent.selectOption"></li>
-      </ul>
-    </div>
-  `
+  template: "<div class='dropdown' data-bind='click: toggleOpen'>\
+      <span class='selected' data-bind='text: selectedText'></span>\
+      <ul data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
+        <li data-bind='text: text, click: $parent.selectOption'></li>\
+      </ul>\
+    </div>"
 });
