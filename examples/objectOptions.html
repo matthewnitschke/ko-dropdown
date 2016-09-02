@@ -13,25 +13,15 @@
   <script src="../src/dropdown.js"></script>
 </head>
 <body>
-  <h2>Dropdown component</h2>
-
   <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
-  <div style="max-width: 7rem">
-      <dropdown params="{options: dropdownOptions, value: dropdownValue}"></dropdown>
+  <div style="max-width: 14rem">
+      <dropdown params="{options: dropdownOptions, value: dropdownValue, caption: 'Choose an object'}"></dropdown>
   </div>
-
-
-  <h2>Built in ko options binding:</h2>
-  <div>Selected Value: <span data-bind="text: optSelected"></span></div>
-  <select data-bind="options: opt, value: optSelected, caption: 'Choose...'"></select>
-
 
   <script>
     ko.applyBindings({
       dropdownValue: ko.observable(),
-      dropdownOptions: ko.observableArray(['a','b','c']),
-      opt: ko.observableArray(['a', 'b', 'c']),
-      optSelected: ko.observable()
+      dropdownOptions: ko.observableArray([{text: 'a', value: 0},{text: 'b', value: 1},{text: 'c', value: 2}]),
     });
   </script>
 </body>

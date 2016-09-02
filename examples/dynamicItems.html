@@ -14,8 +14,12 @@
 </head>
 <body>
 
-  <dropdown params="{options: options, value: selectedValue, caption: 'Choose...'}"></dropdown>
   <div>Selected Value: <span data-bind="text: selectedValue"></span></div>
+  <div style="max-width: 20rem; margin-bottom: 2rem;">
+    <dropdown params="{options: options, value: selectedValue, caption: 'Choose...'}"></dropdown>
+  </div>
+
+
 
   <input data-bind="textInput: addItemValue" placeholder="New Item Value" />
   <input type="button" data-bind="click: addItem" value="Add">
@@ -31,6 +35,7 @@
 
       self.addItem = function(){
         self.options.push(self.addItemValue());
+        self.addItemValue('');
       }
 
     });
