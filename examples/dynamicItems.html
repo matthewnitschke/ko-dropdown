@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="../src/dropdown.css">
+
+  <script src="../node_modules/knockout/build/output/knockout-latest.debug.js"></script>
+
+  <script src="../src/dropdown.js"></script>
+</head>
+<body>
+
+  <dropdown params="{options: options, value: selectedValue, caption: 'Choose...'}"></dropdown>
+  <div>Selected Value: <span data-bind="text: selectedValue"></span></div>
+
+  <input data-bind="textInput: addItemValue" placeholder="New Item Value" />
+  <input type="button" data-bind="click: addItem" value="Add">
+
+  <script>
+    ko.applyBindings(function(){
+      var self = this;
+
+      self.addItemValue = ko.observable();
+
+      self.options = ko.observableArray(['a', 'b', 'c']);
+      self.selectedValue = ko.observable();
+
+      self.addItem = function(){
+        self.options.push(self.addItemValue());
+      }
+
+    });
+  </script>
+</body>
+</html>
