@@ -17,3 +17,21 @@ Ko-dropdown attempts to emulate the ko options binding
 ```
 
 # Options
+
+| Name | Type | Required | Explanation |
+|------|------|----------|-------------|
+| options | Array\<string\> or Array\<object\> | true | options in the dropdown |
+| value | observable | true | the value of the selected option |
+| caption | string |  | text initally displayed on the dropdown |
+
+## Object Options
+If you want your value to be different than your text use the following
+
+```javascript
+self.options = ko.observableArray([
+  { text: 'a', value:0 },
+  { text: 'b', value: 1 },
+  { text: 'c', value: 2 }
+]);
+```
+when a is selected in the dropdown, the value observable will be set to 0
