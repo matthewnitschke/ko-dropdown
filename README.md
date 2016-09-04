@@ -13,7 +13,7 @@ A knockout js dropdown component
 Ko-dropdown attempts to emulate the ko options binding
 
 ```html
-<dropdown params="{options: options}></dropdown>
+<ko-dropdown params="{options: options}></ko-dropdown>
 ```
 
 # Options
