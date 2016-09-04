@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="../node_modules/ko-component-page/dist/ko-component-page.css">
   <script src="../node_modules/ko-component-page/dist/ko-component-page.js"></script>
 
-  <link rel="stylesheet" href="../src/dropdown.css">
-  <script src="../src/dropdown.js"></script>
+  <link rel="stylesheet" href="../src/ko-dropdown.css">
+  <script src="../src/ko-dropdown.js"></script>
 
 </head>
 <body>
@@ -20,10 +20,10 @@
   <ko-component-page params="{label: 'Basic', description: 'Dropdowns can have a captions'}">
 
     <div>Selected Value: <span data-bind="text: valueOne"></span></div>
-    <dropdown params="{options: dropdownOptions, value: valueOne}"></dropdown><br>
+    <ko-dropdown params="{options: dropdownOptions, value: valueOne}"></ko-dropdown><br>
 
     <div>Selected Value: <span data-bind="text: valueTwo"></span></div>
-    <dropdown params="{caption: 'Choose...', options: dropdownOptions, value: valueTwo}"></dropdown>
+    <ko-dropdown params="{caption: 'Choose...', options: dropdownOptions, value: valueTwo}"></ko-dropdown>
 
     <ko-component-page-script>
       {
@@ -38,7 +38,7 @@
   <ko-component-page params="{label: 'Dynamic Options', description: 'Dropdowns can have their options dynamiclly added'}">
 
     <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
-    <dropdown params="{options: dropdownOptions, value: dropdownValue}"></dropdown>
+    <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
 
     <input type="text" data-bind="textInput: addText"/>
     <input type="button" data-bind="click: addItem" value="Add"/>
@@ -60,7 +60,7 @@
   <ko-component-page params="{label: 'Object Options', description: 'You can also use objects to represent each option'}">
 
     <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
-    <dropdown params="{options: dropdownOptions, value: dropdownValue}"></dropdown>
+    <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
 
     <ko-component-page-script>
       {

@@ -1,4 +1,4 @@
-ko.components.register("dropdown", {
+ko.components.register("ko-dropdown", {
   viewModel: function(params){
     var self = this;
 
