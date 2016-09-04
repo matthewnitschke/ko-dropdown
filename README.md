@@ -35,3 +35,10 @@ self.options = ko.observableArray([
 ]);
 ```
 when a is selected in the dropdown, the value observable will be set to 0
+
+# Running the Demo
+The demo file uses a ko-component-page component to display each option. To run, first install dependencies
+```
+npm install
+```
+then open the demo file in chrome
