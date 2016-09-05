@@ -36,8 +36,8 @@ self.options = ko.observableArray([
 ```
 when a is selected in the dropdown, the value observable will be set to 0
 
-# Running the Demo
-The demo file uses a [ko-component-page](https://github.com/matthewnitschke/ko-component-page) component to display each example. To run, first install dependencies
+# Running the Docs
+The docs file uses a [ko-component-page](https://github.com/matthewnitschke/ko-component-page) component to api information. To run, first install dependencies
 ```
 npm install
 ```
