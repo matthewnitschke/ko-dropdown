@@ -27,7 +27,7 @@
 
 
     <ko-component-examples>
-      <ko-component-example>
+      <ko-component-example params="{label: 'Basic', description: 'dropdowns can be just regular dropdowns and also have a caption'}">
         <div>Selected Value: <span data-bind="text: valueOne"></span></div>
         <ko-dropdown params="{options: dropdownOptions, value: valueOne}"></ko-dropdown><br>
 
@@ -43,7 +43,7 @@
         </ko-component-example-script>
       </ko-component-example>
 
-      <ko-component-example>
+      <ko-component-example params="{label: 'Dynamic Elements', description: 'you can dynamiclly add items to the dropdown'}">
         <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
         <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
 
@@ -62,7 +62,7 @@
         </ko-component-example-script>
       </ko-component-example>
 
-      <ko-component-example>
+      <ko-component-example params="{label: 'Object Options', description: 'options can also be objects'}">
         <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
         <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
 
