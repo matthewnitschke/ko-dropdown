@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dropdown</title>
+
+  <script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
+
+  <link rel="stylesheet" href="../node_modules/ko-component-page/dist/ko-component-page.css">
+  <script src="../node_modules/ko-component-page/dist/ko-component-page.js"></script>
+
+  <link rel="stylesheet" href="../src/ko-dropdown.css">
+  <script src="../src/ko-dropdown.js"></script>
+
+</head>
+<body>
+
+  <ko-component-page params="{componentName: '<ko-dropdown>'}">
+
+    <ko-component-parameters>
+      <ko-component-parameter required params="{name: 'options', type: 'Array<string> or Array<object>', description: 'an array of strings or objects for the dropdown'}"></ko-component-parameter>
+      <ko-component-parameter required params="{name: 'value', type: 'observable', description: 'the observable that the value of the dropdown goes into'}"></ko-component-parameter>
+      <ko-component-parameter params="{name: 'caption', type: 'string', description: 'a default text for the dropdown'}"></ko-component-parameter>
+    </ko-component-parameters>
+
+
+    <ko-component-examples>
+      <ko-component-example>
+        <div>Selected Value: <span data-bind="text: valueOne"></span></div>
+        <ko-dropdown params="{options: dropdownOptions, value: valueOne}"></ko-dropdown><br>
+
+        <div>Selected Value: <span data-bind="text: valueTwo"></span></div>
+        <ko-dropdown params="{caption: 'Choose...', options: dropdownOptions, value: valueTwo}"></ko-dropdown>
+
+        <ko-component-example-script>
+          {
+            dropdownOptions: ko.observableArray(['a', 'b', 'c']),
+            valueOne: ko.observable(),
+            valueTwo: ko.observable()
+          }
+        </ko-component-example-script>
+      </ko-component-example>
+
+      <ko-component-example>
+        <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
+        <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
+
+        <input type="text" data-bind="textInput: addText"/>
+        <input type="button" data-bind="click: addItem" value="Add"/>
+
+        <ko-component-example-script>
+          {
+            dropdownOptions: ko.observableArray(['a', 'b', 'c']),
+            dropdownValue: ko.observable(),
+            addText: ko.observable(),
+            addItem: function(){
+              this.dropdownOptions.push(this.addText());
+            }
+          }
+        </ko-component-example-script>
+      </ko-component-example>
+
+      <ko-component-example>
+        <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
+        <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
+
+        <ko-component-example-script>
+          {
+            dropdownOptions: ko.observableArray([
+              {text: 'a', value: 0},
+              {text: 'b', value: 1},
+              {text: 'c', value: 2}
+            ]),
+            dropdownValue: ko.observable()
+          }
+        </ko-component-example-script>
+      </ko-component-example>
+    </ko-component-examples>
+  </ko-component-page>
+
+  <script>
+    ko.applyBindings();
+  </script>
+
+</body>
+</html>

@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "knockout": "^3.4.0",
-    "ko-component-page": "^1.1.1"
+    "ko-component-page": "^1.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
