@@ -1,6 +1,8 @@
 # Ko Dropdown
 A knockout js dropdown component
 
+[Demo and API Docs](https://matthewnitschke.github.io/ko-dropdown/)
+
 # Installation
 ```html
 <link rel="stylesheet" href="/path/to/ko-dropdown.css"/>
