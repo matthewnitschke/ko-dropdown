@@ -77,6 +77,24 @@
           }
         </ko-component-example-script>
       </ko-component-example>
+
+      <ko-component-example params="{label: 'Programmatically Changable', description: 'options can be programmatically selected'}">
+        <div>Selected Value: <span data-bind="text: dropdownValue"></span></div>
+        <ko-dropdown params="{options: dropdownOptions, value: dropdownValue}"></ko-dropdown>
+
+        <input type="button" value="Select option 'b'" data-bind="click: selectOption">
+
+        <ko-component-example-script>
+          {
+            dropdownOptions: ko.observableArray(['a','b','c']),
+            dropdownValue: ko.observable(),
+            selectOption: function() {
+              this.dropdownValue('b');
+            }
+          }
+        </ko-component-example-script>
+      </ko-component-example>
+
     </ko-component-examples>
   </ko-component-page>
 
