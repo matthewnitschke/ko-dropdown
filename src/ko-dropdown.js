@@ -35,7 +35,6 @@
       });
 
       if (ko.unwrap(self.value)){
-        var e = self.dropdownOptions()
         self.selectedOption(findOptionByValue(ko.unwrap(self.value)));
       } else if (ko.unwrap(self.caption)){
         self.selectedOption({
