@@ -14,6 +14,11 @@
         return ko.unwrap(self.selectedOption) ? ko.unwrap(self.selectedOption).text : "";
       });
 
+      self.selectOption = function(option){
+        self.value(option.value);
+        self.selectedOption(option);
+      }
+
       self.dropdownOptions = ko.computed(function(){
         var retOptions = [];
         self.options().forEach(function(option){
@@ -42,10 +47,7 @@
         });
       }
 
-      self.selectOption = function(option){
-        self.value(option.value);
-        self.selectedOption(option);
-      }
+
 
       self.toggleOpen = function(data, event){
         event.stopPropagation();
