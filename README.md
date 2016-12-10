@@ -1,5 +1,5 @@
 # Ko Dropdown
-A knockout js dropdown component
+A knockout js dropdown component. Allows full css customizability to dropdowns using knockout js
 
 [Demo and API Docs](https://matthewnitschke.github.io/ko-dropdown/)
 
