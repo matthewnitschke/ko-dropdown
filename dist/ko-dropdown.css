@@ -24,6 +24,9 @@
   width: 100%;
   color: #f08800;
   background-color: #e5e5e8;
+
+  max-height: 40rem;
+  overflow-y: auto;
 }
 
 .ko-dropdown__list-item {
