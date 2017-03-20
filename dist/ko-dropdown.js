@@ -1,7 +1,19 @@
 (function(){
+  var dropdowns = [];
+
+  var hideAllDropdowns = function(){
+    for(var i = 0; i < dropdowns.length; i ++){
+      dropdowns[i].dropdownOpen(false);
+    }
+  }
+
+  window.addEventListener('click', hideAllDropdowns);
+
   ko.components.register("ko-dropdown", {
     viewModel: function(params){
       var self = this;
+
+      dropdowns.push(self);
 
       self.caption = params.caption;
       self.value = params.value;
@@ -50,8 +62,14 @@
 
 
       self.toggleOpen = function(data, event){
+        var currentStatus = self.dropdownOpen();
+
         event.stopPropagation();
-        self.dropdownOpen(!self.dropdownOpen());
+        hideAllDropdowns();
+
+        if (!currentStatus){
+          self.dropdownOpen(true);
+        }
       }
 
 
@@ -65,10 +83,6 @@
             self.selectOption(option);
           }
         }
-      });
-
-      window.addEventListener('click', function (e) {
-          self.dropdownOpen(false);
       });
 
       function findOptionByValue(val){

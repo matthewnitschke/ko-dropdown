@@ -1,11 +1,23 @@
-(function () {
-    ko.components.register("ko-dropdown", {
-        viewModel: function (params) {
-            var self = this;
+(function(){
+  var dropdowns = [];
 
-            self.caption = params.caption;
-            self.value = params.value;
-            self.options = params.options;
+  var hideAllDropdowns = function(){
+    for(var i = 0; i < dropdowns.length; i ++){
+      dropdowns[i].dropdownOpen(false);
+    }
+  }
+
+  window.addEventListener('click', hideAllDropdowns);
+
+  ko.components.register("ko-dropdown", {
+    viewModel: function(params){
+      var self = this;
+
+      dropdowns.push(self);
+
+      self.caption = params.caption;
+      self.value = params.value;
+      self.options = params.options;
 
             self.dropdownOpen = ko.observable(false);
 
@@ -58,6 +70,16 @@
                 self.dropdownOpen(!self.dropdownOpen());
             }
 
+      self.toggleOpen = function(data, event){
+        var currentStatus = self.dropdownOpen();
+
+        event.stopPropagation();
+        hideAllDropdowns();
+
+        if (!currentStatus){
+          self.dropdownOpen(true);
+        }
+      }
 
 
             self.value.subscribe(function (newValue) {
