@@ -111,8 +111,8 @@
         },
         template: "<div class='ko-dropdown' data-bind='click: toggleOpen'>\
         <span class='selected' data-bind='text: selectedText'></span>\
-        <ul data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
-          <li data-bind='text: text, click: $parent.selectOption'></li>\
+        <ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
+          <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
         </ul>\
       </div>"
     });
