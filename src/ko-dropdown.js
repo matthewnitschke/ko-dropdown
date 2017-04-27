@@ -1,23 +1,24 @@
-(function(){
-  var dropdowns = [];
+(function () {
+    var dropdowns = [];
 
-  var hideAllDropdowns = function(){
-    for(var i = 0; i < dropdowns.length; i ++){
-      dropdowns[i].dropdownOpen(false);
+    var hideAllDropdowns = function () {
+        for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].dropdownOpen(false);
+        }
     }
-  }
 
-  window.addEventListener('click', hideAllDropdowns);
+    window.addEventListener('click', hideAllDropdowns);
 
-  ko.components.register("ko-dropdown", {
-    viewModel: function(params){
-      var self = this;
+    ko.components.register("ko-dropdown", {
+        viewModel: function (params) {
+            var self = this;
 
-      dropdowns.push(self);
+            dropdowns.push(self);
 
-      self.caption = params.caption;
-      self.value = params.value;
-      self.options = params.options;
+            self.caption = params.caption;
+            self.value = params.value;
+            self.options = params.options;
+            self.isEnabled = params.isEnabled ? params.isEnabled : ko.observable(true); //Enabled by default if isEnabled isn't passed in
 
             self.dropdownOpen = ko.observable(false);
 
@@ -70,16 +71,16 @@
                 self.dropdownOpen(!self.dropdownOpen());
             }
 
-      self.toggleOpen = function(data, event){
-        var currentStatus = self.dropdownOpen();
+            self.toggleOpen = function (data, event) {
+                var currentStatus = self.dropdownOpen();
 
-        event.stopPropagation();
-        hideAllDropdowns();
+                event.stopPropagation();
+                hideAllDropdowns();
 
-        if (!currentStatus){
-          self.dropdownOpen(true);
-        }
-      }
+                if (!currentStatus) {
+                    self.dropdownOpen(true);
+                }
+            }
 
 
             self.value.subscribe(function (newValue) {
@@ -109,12 +110,12 @@
                 return foundOption;
             }
         },
-        template: "<div class='ko-dropdown' data-bind='click: toggleOpen'>\
-        <span class='selected' data-bind='text: selectedText'></span>\
-        <ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
-          <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
-        </ul>\
-      </div>"
+        template: "<div class='ko-dropdown' data-bind='click: toggleOpen, css: {ko_dropdown_disabled: !isEnabled() }'>\
+    <span class='selected' data-bind='text: selectedText'></span>\
+    <!-- ko if: isEnabled --><ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
+        <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
+    </ul>\
+    <!-- /ko --></div>"
     });
 
 }());
