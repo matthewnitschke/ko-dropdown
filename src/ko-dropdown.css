@@ -12,7 +12,7 @@
     text-align: left;
 }
 
-.ko_dropdown_disabled { /*Had to use underscore format to work correctly in template*/
+.ko-dropdown__disabled { /*Had to use underscore format to work correctly in template*/
     cursor: not-allowed;
     opacity: .5;
 }
@@ -29,7 +29,7 @@
     width: 100%;
     color: #f08800;
     background-color: #e5e5e8;
-    
+
     max-height: 40rem;
     overflow-y: auto;
 }
