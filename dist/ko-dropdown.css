@@ -1,50 +1,55 @@
 .ko-dropdown {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-weight: 600;
-  padding: .3rem .8rem;
-  color: #f08800;
-  background-color: #e5e5e8;
-  cursor: pointer;
-  position: relative;
-  text-align: left;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 600;
+    padding: .3rem .8rem;
+    color: #f08800;
+    background-color: #e5e5e8;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+}
+
+.ko_dropdown_disabled { /*Had to use underscore format to work correctly in template*/
+    cursor: not-allowed;
+    opacity: .5;
 }
 
 .ko-dropdown__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 1.7em;
-  left: 0;
-  z-index: 5;
-  border-top: 1px solid #ccc;
-  width: 100%;
-  color: #f08800;
-  background-color: #e5e5e8;
-
-  max-height: 40rem;
-  overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 1.7em;
+    left: 0;
+    z-index: 5;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    color: #f08800;
+    background-color: #e5e5e8;
+    
+    max-height: 40rem;
+    overflow-y: auto;
 }
 
 .ko-dropdown__list-item {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  padding: .3rem .6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: .3rem .6rem;
 }
 
-.ko-dropdown__list-item:hover {
-  background-color: #333;
-  color: #fff;
-}
+    .ko-dropdown__list-item:hover {
+        background-color: #333;
+        color: #fff;
+    }
 
 .ko-dropdown:after {
-  content: '\25bc';
-  float: right;
-  margin-top: .25rem;
-  margin-left: .5rem;
-  font-size: .75rem;
+    content: '\25bc';
+    float: right;
+    margin-top: .25rem;
+    margin-left: .5rem;
+    font-size: .75rem;
 }
