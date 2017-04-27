@@ -110,7 +110,7 @@
 				return foundOption;
 			}
 		},
-		template: "<div class='ko-dropdown' data-bind='click: toggleOpen, css: {ko-dropdown__disabled: !isEnabled() }'>\
+		template: "<div class='ko-dropdown' data-bind='click: toggleOpen, css: {'ko-dropdown__disabled': !isEnabled() }'>\
               <span class='selected' data-bind='text: selectedText'></span>\
               <!-- ko if: isEnabled --><ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
                   <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
