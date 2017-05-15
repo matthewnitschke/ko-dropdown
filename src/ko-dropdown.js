@@ -45,7 +45,7 @@
                     }
                 });
 
-                if (retOptions.length > 0 && !ko.unwrap(self.caption)) {
+                if (retOptions.length > 0 && !ko.unwrap(self.caption) && !ko.unwrap(self.value)) {
                     self.selectOption(retOptions[0]);
                 }
 
@@ -102,7 +102,7 @@
                 var foundOption = null;
                 if (ko.unwrap(self.dropdownOptions)) {
                     self.dropdownOptions().forEach(function (option) {
-                        if (option.value === val) {
+                        if (option.value == val) {
                             foundOption = option;
                         }
                     });
