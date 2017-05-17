@@ -45,9 +45,9 @@
 					}
 				});
 
-				if (retOptions.length > 0 && !ko.unwrap(self.caption)) {
-					self.selectOption(retOptions[0]);
-				}
+                if (retOptions.length > 0 && !ko.unwrap(self.caption) && !ko.unwrap(self.value)) {
+                    self.selectOption(retOptions[0]);
+                }
 
 				return retOptions;
 			});
@@ -98,23 +98,24 @@
 				self.dropdownOpen(false);
 			});
 
-			function findOptionByValue(val) {
-				var foundOption = null;
-				if (ko.unwrap(self.dropdownOptions)) {
-					self.dropdownOptions().forEach(function(option) {
-						if (option.value === val) {
-							foundOption = option;
-						}
-					});
-				}
-				return foundOption;
-			}
-		},
-		template: "<div class='ko-dropdown' data-bind='click: toggleOpen, css: {'ko-dropdown__disabled': !isEnabled() }'>\
-              <span class='selected' data-bind='text: selectedText'></span>\
-              <!-- ko if: isEnabled --><ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
-                  <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
-              </ul>\
-              <!-- /ko --></div>"
-	});
+            function findOptionByValue(val) {
+                var foundOption = null;
+                if (ko.unwrap(self.dropdownOptions)) {
+                    self.dropdownOptions().forEach(function (option) {
+                        if (option.value == val) {
+                            foundOption = option;
+                        }
+                    });
+                }
+                return foundOption;
+            }
+        },
+        template: "<div class='ko-dropdown' data-bind='click: toggleOpen, css: {ko_dropdown_disabled: !isEnabled() }'>\
+    <span class='selected' data-bind='text: selectedText'></span>\
+    <!-- ko if: isEnabled --><ul class='ko-dropdown__list' data-bind='visible: dropdownOpen, foreach: dropdownOptions'>\
+        <li class='ko-dropdown__list-item' data-bind='text: text, click: $parent.selectOption'></li>\
+    </ul>\
+    <!-- /ko --></div>"
+    });
+
 }());
