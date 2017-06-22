@@ -15,7 +15,7 @@ A knockout js dropdown component. Allows full css customizability to dropdowns u
 Ko-dropdown attempts to emulate the ko options binding
 
 ```html
-<ko-dropdown params="{options: options}></ko-dropdown>
+<ko-dropdown params="{options: options}"></ko-dropdown>
 ```
 
 # Options
