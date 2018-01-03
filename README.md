@@ -1,9 +1,17 @@
-# Ko Dropdown
+# DEPRICATED
+This project has been depricated, it never really worked as well as I had hoped and you probably should just use knockout's built in `options` binding
+
+```html
+<select data-bind="options: selectOptions"></select>
+```
+
+
+## Ko Dropdown
 A knockout js dropdown component. Allows full css customizability to dropdowns using knockout js
 
 [Demo and API Docs](https://matthewnitschke.github.io/ko-dropdown/)
 
-# Installation
+## Installation
 ```html
 <link rel="stylesheet" href="/path/to/ko-dropdown.css"/>
 
@@ -11,14 +19,14 @@ A knockout js dropdown component. Allows full css customizability to dropdowns u
 <script src="/path/to/ko-dropdown.js"></script>
 ```
 
-# Usage
+## Usage
 Ko-dropdown attempts to emulate the ko options binding
 
 ```html
 <ko-dropdown params="{options: options}"></ko-dropdown>
 ```
 
-# Options
+## Options
 
 | Name | Type | Required | Explanation |
 |------|------|----------|-------------|
@@ -26,7 +34,7 @@ Ko-dropdown attempts to emulate the ko options binding
 | value | observable | true | the value of the selected option |
 | caption | string |  | text initally displayed on the dropdown |
 
-## Object Options
+### Object Options
 If you want your value to be different than your text use the following
 
 ```javascript
